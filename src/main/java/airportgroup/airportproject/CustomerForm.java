@@ -493,7 +493,7 @@ public class CustomerForm extends javax.swing.JFrame {
     public void updateform(String id){
         try {
             //Establish mysql connection
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root","dinosaur");
+            connect();
             //Initialize the query
             String query = "select * from reguser where ID="+id;
             //create the statement

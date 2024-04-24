@@ -14,14 +14,14 @@ import javax.swing.ListModel;
  *
  * @author 1blak
  */
-public class CustomerForm extends javax.swing.JFrame {
+public class FlightForm extends javax.swing.JFrame {
 
     /**
      * Creates new form MainForm
      */
     private Connection connection;
     
-    public CustomerForm() {
+    public FlightForm() {
         initComponents();
     }
 
@@ -43,34 +43,21 @@ public class CustomerForm extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        first_name = new javax.swing.JTextField();
-        birth_date = new javax.swing.JTextField();
-        last_name = new javax.swing.JTextField();
-        occupation = new javax.swing.JTextField();
-        phone = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        address = new javax.swing.JTextField();
-        city = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        state = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        zip = new javax.swing.JTextField();
+        origin = new javax.swing.JTextField();
+        date = new javax.swing.JTextField();
+        destination = new javax.swing.JTextField();
+        gate = new javax.swing.JTextField();
         newButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
-        userID = new javax.swing.JLabel();
+        flightID = new javax.swing.JLabel();
         menuButton = new javax.swing.JButton();
 
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Customer Form");
+        setTitle("Flight Form");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Users");
+        jLabel1.setText("Flights");
 
         refreshButton.setText("Refresh");
         refreshButton.addActionListener(new java.awt.event.ActionListener() {
@@ -91,85 +78,37 @@ public class CustomerForm extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(userList);
 
-        jLabel2.setText("User:");
+        jLabel2.setText("Flight:");
 
-        jLabel3.setText("First Name:");
+        jLabel3.setText("Origin:");
 
-        jLabel4.setText("Last Name:");
+        jLabel4.setText("Destination:");
 
-        jLabel5.setText("Birthdate:");
+        jLabel5.setText("Date:");
 
-        jLabel6.setText("Occupation:");
+        jLabel6.setText("Gate:");
 
-        jLabel7.setText("Phone:");
-
-        jLabel8.setText("Email:");
-
-        first_name.addActionListener(new java.awt.event.ActionListener() {
+        origin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                first_nameActionPerformed(evt);
+                originActionPerformed(evt);
             }
         });
 
-        birth_date.addActionListener(new java.awt.event.ActionListener() {
+        date.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                birth_dateActionPerformed(evt);
+                dateActionPerformed(evt);
             }
         });
 
-        last_name.addActionListener(new java.awt.event.ActionListener() {
+        destination.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                last_nameActionPerformed(evt);
+                destinationActionPerformed(evt);
             }
         });
 
-        occupation.addActionListener(new java.awt.event.ActionListener() {
+        gate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                occupationActionPerformed(evt);
-            }
-        });
-
-        phone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                phoneActionPerformed(evt);
-            }
-        });
-
-        email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("State");
-
-        jLabel10.setText("Zip");
-
-        address.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressActionPerformed(evt);
-            }
-        });
-
-        city.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cityActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setText("Address");
-
-        state.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stateActionPerformed(evt);
-            }
-        });
-
-        jLabel12.setText("City");
-
-        zip.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zipActionPerformed(evt);
+                gateActionPerformed(evt);
             }
         });
 
@@ -194,7 +133,7 @@ public class CustomerForm extends javax.swing.JFrame {
             }
         });
 
-        userID.setText("          ");
+        flightID.setText("          ");
 
         menuButton.setText("Menu");
         menuButton.addActionListener(new java.awt.event.ActionListener() {
@@ -220,22 +159,20 @@ public class CustomerForm extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6)
                                     .addComponent(jLabel5)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(10, 10, 10)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                                    .addComponent(occupation, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(birth_date)
-                                    .addComponent(email)))
+                                    .addComponent(gate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)
+                                    .addComponent(date)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(userID)
+                                .addComponent(flightID)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -244,26 +181,11 @@ public class CustomerForm extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(last_name, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(first_name))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(state, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(city, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(zip)
-                            .addComponent(address, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(41, 41, 41))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(menuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
+                            .addComponent(destination, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                            .addComponent(origin))))
+                .addGap(157, 157, 157)
+                .addComponent(menuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(newButton)
@@ -290,52 +212,27 @@ public class CustomerForm extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel2)
-                                    .addComponent(userID)))
+                                    .addComponent(flightID)))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(menuButton)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(first_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(last_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(birth_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(occupation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7))
-                                .addGap(22, 22, 22)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(zip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(origin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(destination, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(gate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(78, 78, 78)))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newButton)
@@ -384,60 +281,30 @@ public class CustomerForm extends javax.swing.JFrame {
         }
     }
     
-    private void first_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_first_nameActionPerformed
+    private void originActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_originActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_first_nameActionPerformed
+    }//GEN-LAST:event_originActionPerformed
 
-    private void birth_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birth_dateActionPerformed
+    private void dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_birth_dateActionPerformed
+    }//GEN-LAST:event_dateActionPerformed
 
-    private void last_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_last_nameActionPerformed
+    private void destinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destinationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_last_nameActionPerformed
+    }//GEN-LAST:event_destinationActionPerformed
 
-    private void occupationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_occupationActionPerformed
+    private void gateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_occupationActionPerformed
-
-    private void phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_phoneActionPerformed
-
-    private void emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_emailActionPerformed
-
-    private void addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addressActionPerformed
-
-    private void cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cityActionPerformed
-
-    private void stateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stateActionPerformed
-
-    private void zipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_zipActionPerformed
+    }//GEN-LAST:event_gateActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
         try{
-            if (connect() && !first_name.getText().isEmpty() && !last_name.getText().isEmpty()){
+            if (connect() && !origin.getText().isEmpty() && !destination.getText().isEmpty()){
                 PreparedStatement stmt = connection.prepareStatement("insert into reguser values(?,?,?,?,?,?,?,?,?,?,?)");
-                stmt.setString(2, first_name.getText());
-                stmt.setString(3, last_name.getText());
-                stmt.setString(5, address.getText());
-                stmt.setString(6, city.getText());
-                stmt.setString(7, state.getText());
-                stmt.setString(8, zip.getText());
-                stmt.setString(11, phone.getText());
-                stmt.setString(9, occupation.getText());
-                stmt.setString(10, birth_date.getText());
-                stmt.setString(4, email.getText());
+                stmt.setString(2, origin.getText());
+                stmt.setString(3, destination.getText());
+                stmt.setString(9, gate.getText());
+                stmt.setString(10, date.getText());
                 stmt.setString(1, Integer.toString(getUniqueID()));
                 stmt.executeUpdate();  
                 refresh();
@@ -471,21 +338,15 @@ public class CustomerForm extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         try{
-            if (connect() && !first_name.getText().isEmpty() && !last_name.getText().isEmpty()){
+            if (connect() && !origin.getText().isEmpty() && !destination.getText().isEmpty()){
                 PreparedStatement stmt = connection.prepareStatement("update reguser set "
                         + "first_name=?, last_name=?, email=?, address=?, city=?, state=?, zip=?, occupation=?, birth_date=?, phone=? "
                         + "where ID=?");
-                stmt.setString(11, userID.getText());
-                stmt.setString(1, first_name.getText());
-                stmt.setString(2, last_name.getText());
-                stmt.setString(4, address.getText());
-                stmt.setString(5, city.getText());
-                stmt.setString(6, state.getText());
-                stmt.setString(7, zip.getText());
-                stmt.setString(10, phone.getText());
-                stmt.setString(8, occupation.getText());
-                stmt.setString(9, birth_date.getText());
-                stmt.setString(3, email.getText());
+                stmt.setString(11, flightID.getText());
+                stmt.setString(1, origin.getText());
+                stmt.setString(2, destination.getText());
+                stmt.setString(8, gate.getText());
+                stmt.setString(9, date.getText());
                 stmt.executeUpdate();   
                 refresh();
             }
@@ -499,7 +360,7 @@ public class CustomerForm extends javax.swing.JFrame {
         try{
             if (connect()){
                 PreparedStatement stmt = connection.prepareStatement("delete from reguser where ID=?");
-                stmt.setString(1, userID.getText());
+                stmt.setString(1, flightID.getText());
                 stmt.executeUpdate();
                 refresh();
             }
@@ -526,17 +387,11 @@ public class CustomerForm extends javax.swing.JFrame {
             //Because we are targeting a primary key, we simply set the values to the results taht are retrieved.  
             while (rs.next()) {
                 //Set the controls to the dtabase values
-               first_name.setText(rs.getString("first_name"));
-               last_name.setText(rs.getString("last_name"));
-               address.setText(rs.getString("address"));
-               city.setText(rs.getString("city"));
-               state.setText(rs.getString("state"));
-               zip.setText(rs.getString("zip"));
-               phone.setText(rs.getString("phone"));
-               occupation.setText(rs.getString("occupation"));
-               birth_date.setText(rs.getString("birth_date"));
-               email.setText(rs.getString("email")); 
-               userID.setText(rs.getString("ID"));
+               origin.setText(rs.getString("first_name"));
+               destination.setText(rs.getString("last_name"));
+               gate.setText(rs.getString("occupation"));
+               date.setText(rs.getString("birth_date"));
+               flightID.setText(rs.getString("ID"));
             } 
             //close the connection
             connection.close();
@@ -608,40 +463,27 @@ public class CustomerForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField address;
-    private javax.swing.JTextField birth_date;
-    private javax.swing.JTextField city;
+    private javax.swing.JTextField date;
     private javax.swing.JButton deleteButton;
-    private javax.swing.JTextField email;
-    private javax.swing.JTextField first_name;
+    private javax.swing.JTextField destination;
+    private javax.swing.JLabel flightID;
+    private javax.swing.JTextField gate;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField last_name;
     private javax.swing.JButton menuButton;
     private javax.swing.JButton newButton;
-    private javax.swing.JTextField occupation;
-    private javax.swing.JTextField phone;
+    private javax.swing.JTextField origin;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton saveButton;
-    private javax.swing.JTextField state;
-    private javax.swing.JLabel userID;
     private javax.swing.JList<String> userList;
-    private javax.swing.JTextField zip;
     // End of variables declaration//GEN-END:variables
 
     //Custom Variable declaration
     private String[] passwords = {"dinosaur", "", "Xxwujak!uq8du3"};
     private String password = passwords[2];
-
 }

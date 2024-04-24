@@ -31,6 +31,7 @@ public class MainForm extends javax.swing.JFrame {
         flightButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Airport Form Request");
 
         customerButton.setText("Customer");
         customerButton.addActionListener(new java.awt.event.ActionListener() {
@@ -40,8 +41,18 @@ public class MainForm extends javax.swing.JFrame {
         });
 
         ticketButton.setText("Ticket");
+        ticketButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ticketButtonActionPerformed(evt);
+            }
+        });
 
         flightButton.setText("Flight");
+        flightButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flightButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,8 +88,22 @@ public class MainForm extends javax.swing.JFrame {
     private void customerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerButtonActionPerformed
         CustomerForm cform = new CustomerForm();
         cform.setVisible(true);
-        System.out.println("NEW CUSTOMER FORM!!!");
+        System.out.println("NEW CUSTOMER FORM!!");
     }//GEN-LAST:event_customerButtonActionPerformed
+
+    private void ticketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketButtonActionPerformed
+        // TODO add your handling code here:
+        TicketForm tform = new TicketForm();
+        tform.setVisible(true);
+        System.out.println("NEW TICKET FORM CREATED!");
+    }//GEN-LAST:event_ticketButtonActionPerformed
+
+    private void flightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightButtonActionPerformed
+        // TODO add your handling code here:
+        FlightForm fForm = new FlightForm();
+        fForm.setVisible(true);
+        System.out.println("NEW FLIGHT FORM CREATED!");
+    }//GEN-LAST:event_flightButtonActionPerformed
 
     /**
      * @param args the command line arguments

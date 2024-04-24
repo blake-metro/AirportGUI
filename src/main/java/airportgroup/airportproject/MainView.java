@@ -40,8 +40,18 @@ public class MainView extends javax.swing.JFrame {
         });
 
         ticketButton.setText("Ticket");
+        ticketButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ticketButtonActionPerformed(evt);
+            }
+        });
 
         flightButton.setText("Flight");
+        flightButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                flightButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,6 +89,21 @@ public class MainView extends javax.swing.JFrame {
         cform.setVisible(true);
         System.out.println("NEW CUSTOMER FORM!!!");
     }//GEN-LAST:event_customerButtonActionPerformed
+
+    private void ticketButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ticketButtonActionPerformed
+        // TODO add your handling code here:
+        System.out.println("NEW TICKET FORM CREATED!");
+        TicketForm tform = new TicketForm();
+        tform.setVisible(true);
+        
+    }//GEN-LAST:event_ticketButtonActionPerformed
+
+    private void flightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightButtonActionPerformed
+        // TODO add your handling code here:
+        FlightForm flightForm = new FlightForm();
+        flightForm.setVisible(true);
+        System.out.println("NEW FLIGHT FORM CREATED!");
+    }//GEN-LAST:event_flightButtonActionPerformed
 
     /**
      * @param args the command line arguments

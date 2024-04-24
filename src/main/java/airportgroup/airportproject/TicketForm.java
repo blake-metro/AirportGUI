@@ -14,14 +14,14 @@ import javax.swing.ListModel;
  *
  * @author 1blak
  */
-public class CustomerForm extends javax.swing.JFrame {
+public class TicketForm extends javax.swing.JFrame {
 
     /**
      * Creates new form MainForm
      */
     private Connection connection;
     
-    public CustomerForm() {
+    public TicketForm() {
         initComponents();
     }
 
@@ -65,7 +65,7 @@ public class CustomerForm extends javax.swing.JFrame {
         userID = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Customer Form");
+        setTitle("Ticket Form");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Users");
@@ -619,5 +619,4 @@ public class CustomerForm extends javax.swing.JFrame {
     //Custom Variable declaration
     private String[] passwords = {"dinosaur", "", "Xxwujak!uq8du3"};
     private String password = passwords[2];
-
 }

@@ -11,7 +11,7 @@
         <maven.compiler.target>19</maven.compiler.target>
         <exec.mainClass>airportgroup.airportproject.AirportProject</exec.mainClass>
     </properties>
-    <name>Kenji's Contact Form</name>
+    <name>Airport Form</name>
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>

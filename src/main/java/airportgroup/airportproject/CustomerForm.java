@@ -65,6 +65,7 @@ public class CustomerForm extends javax.swing.JFrame {
         userID = new javax.swing.JLabel();
         menuButton = new javax.swing.JButton();
 
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Customer Form");
 

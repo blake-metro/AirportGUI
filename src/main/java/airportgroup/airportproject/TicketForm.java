@@ -215,7 +215,7 @@ public class TicketForm extends javax.swing.JFrame {
 
     public boolean connect(){
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root","dinosaur");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/g7airlines", "root","dinosaur");
             return true;
         } catch(Exception exception){
             exception.printStackTrace();
@@ -226,15 +226,14 @@ public class TicketForm extends javax.swing.JFrame {
     public void refresh(){
         try{
             if(connect()){
-                String query = "select * from reguser";
+                String query = "select * from ticket";
                 Statement sta = connection.createStatement();
 
                 ResultSet rs = sta.executeQuery(query);
                 DefaultListModel listModel;
                 listModel = new DefaultListModel();
                 while(rs.next()){
-                    listModel.addElement(rs.getString("ID") + " - " + rs.getString("first_name") + " " + 
-                            rs.getString("last_name"));
+                    listModel.addElement(rs.getString("ticketID") + " - " + rs.getString("userID"));
                 }
                 userList.clearSelection();
                 userList.setModel(listModel);
@@ -261,10 +260,10 @@ public class TicketForm extends javax.swing.JFrame {
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
         try{
             if (connect() && !userID.getText().isEmpty() && !flightID.getText().isEmpty()){
-                PreparedStatement stmt = connection.prepareStatement("insert into reguser values(?,?,?,?,?,?,?,?,?,?,?)");
+                PreparedStatement stmt = connection.prepareStatement("insert into ticket values(?,?,?,?)");
                 stmt.setString(2, userID.getText());
                 stmt.setString(3, flightID.getText());
-                stmt.setString(10, seat.getText());
+                stmt.setString(4, seat.getText());
                 stmt.setString(1, Integer.toString(getUniqueID()));
                 stmt.executeUpdate();  
                 refresh();
@@ -299,13 +298,13 @@ public class TicketForm extends javax.swing.JFrame {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         try{
             if (connect() && !userID.getText().isEmpty() && !flightID.getText().isEmpty()){
-                PreparedStatement stmt = connection.prepareStatement("update reguser set "
-                        + "first_name=?, last_name=?, email=?, address=?, city=?, state=?, zip=?, occupation=?, birth_date=?, phone=? "
-                        + "where ID=?");
-                stmt.setString(11, ticketID.getText());
+                PreparedStatement stmt = connection.prepareStatement("update ticket set "
+                        + "userID=?, flightID=?, seat=?"
+                        + "where ticketID=?");
+                stmt.setString(4, ticketID.getText());
                 stmt.setString(1, userID.getText());
                 stmt.setString(2, flightID.getText());
-                stmt.setString(9, seat.getText());
+                stmt.setString(3, seat.getText());
                 stmt.executeUpdate();   
                 refresh();
             }
@@ -318,7 +317,7 @@ public class TicketForm extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try{
             if (connect()){
-                PreparedStatement stmt = connection.prepareStatement("delete from reguser where ID=?");
+                PreparedStatement stmt = connection.prepareStatement("delete from ticket where ticketID=?");
                 stmt.setString(1, ticketID.getText());
                 stmt.executeUpdate();
                 refresh();
@@ -334,7 +333,7 @@ public class TicketForm extends javax.swing.JFrame {
             //Establish mysql connection
             connect();
             //Initialize the query
-            String query = "select * from reguser where ID="+id;
+            String query = "select * from ticket where ticketID="+id;
             //create the statement
             Statement sta = connection.createStatement();
             //Set the results
@@ -342,10 +341,10 @@ public class TicketForm extends javax.swing.JFrame {
             //Because we are targeting a primary key, we simply set the values to the results taht are retrieved.  
             while (rs.next()) {
                 //Set the controls to the dtabase values
-               userID.setText(rs.getString("first_name"));
-               flightID.setText(rs.getString("last_name"));
-               seat.setText(rs.getString("birth_date"));
-               ticketID.setText(rs.getString("ID"));
+               userID.setText(rs.getString("userID"));
+               flightID.setText(rs.getString("flightID"));
+               seat.setText(rs.getString("seat"));
+               ticketID.setText(rs.getString("ticketID"));
             } 
             //close the connection
             connection.close();
@@ -363,7 +362,7 @@ public class TicketForm extends javax.swing.JFrame {
         try{
             if(connect()){
                 while (!found){
-                    String query = "select ID from reguser where ID="+id;
+                    String query = "select ticketID from ticket where ticketID="+id;
                 //create the statement
                 Statement sta = connection.createStatement();
                 //Set the results

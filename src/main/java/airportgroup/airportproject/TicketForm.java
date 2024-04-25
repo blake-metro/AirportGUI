@@ -2,7 +2,10 @@ package airportgroup.airportproject;
 
 
 import java.sql.*;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JComboBox;
 import javax.swing.ListModel;
 
 /*
@@ -42,13 +45,13 @@ public class TicketForm extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        userID = new javax.swing.JTextField();
         seat = new javax.swing.JTextField();
-        flightID = new javax.swing.JTextField();
         newButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
         ticketID = new javax.swing.JLabel();
+        userID = new javax.swing.JComboBox<>();
+        flightID = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ticket Form");
@@ -83,21 +86,9 @@ public class TicketForm extends javax.swing.JFrame {
 
         jLabel5.setText("Seat:");
 
-        userID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                userIDActionPerformed(evt);
-            }
-        });
-
         seat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seatActionPerformed(evt);
-            }
-        });
-
-        flightID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                flightIDActionPerformed(evt);
             }
         });
 
@@ -123,6 +114,10 @@ public class TicketForm extends javax.swing.JFrame {
         });
 
         ticketID.setText("          ");
+
+        userID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        flightID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -157,8 +152,8 @@ public class TicketForm extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(flightID, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(userID))))
+                            .addComponent(userID, 0, 160, Short.MAX_VALUE)
+                            .addComponent(flightID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(279, 279, 279))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -189,15 +184,15 @@ public class TicketForm extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(userID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(flightID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addGap(30, 30, 30)
+                            .addComponent(jLabel4)
+                            .addComponent(flightID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(seat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
-                        .addGap(118, 118, 118)))
+                        .addGap(56, 56, 56)))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newButton)
@@ -227,16 +222,37 @@ public class TicketForm extends javax.swing.JFrame {
         try{
             if(connect()){
                 String query = "select * from ticket";
+                String userquery = "select userID from customer";
+                String flightquery = "select flightID from flight";
                 Statement sta = connection.createStatement();
-
                 ResultSet rs = sta.executeQuery(query);
-                DefaultListModel listModel;
-                listModel = new DefaultListModel();
+                
+                // userlist
+                DefaultListModel listModel = new DefaultListModel();
                 while(rs.next()){
                     listModel.addElement(rs.getString("ticketID") + " - " + rs.getString("userID"));
                 }
                 userList.clearSelection();
                 userList.setModel(listModel);
+                
+                // userID Combobox
+                rs = sta.executeQuery(userquery);
+                DefaultComboBoxModel comboModel = new DefaultComboBoxModel();
+                while(rs.next()){
+                    comboModel.addElement(rs.getString("userID"));
+                }
+                userID.removeAllItems();
+                userID.setModel(comboModel);
+                
+                // flighID Combobox
+                rs = sta.executeQuery(flightquery);
+                comboModel = new DefaultComboBoxModel();
+                while(rs.next()){
+                    comboModel.addElement(rs.getString("flightID"));
+                }
+                flightID.removeAllItems();
+                flightID.setModel(comboModel);
+                
                 connection.close();
             }
         }
@@ -245,24 +261,16 @@ public class TicketForm extends javax.swing.JFrame {
         }
     }
     
-    private void userIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_userIDActionPerformed
-
     private void seatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_seatActionPerformed
 
-    private void flightIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_flightIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_flightIDActionPerformed
-
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
         try{
-            if (connect() && !userID.getText().isEmpty() && !flightID.getText().isEmpty()){
+            if (connect() && !((String)userID.getSelectedItem()).isEmpty() && !((String)flightID.getSelectedItem()).isEmpty()){
                 PreparedStatement stmt = connection.prepareStatement("insert into ticket values(?,?,?,?)");
-                stmt.setString(2, userID.getText());
-                stmt.setString(3, flightID.getText());
+                stmt.setString(2, (String)userID.getSelectedItem());
+                stmt.setString(3, (String)flightID.getSelectedItem());
                 stmt.setString(4, seat.getText());
                 stmt.setString(1, Integer.toString(getUniqueID()));
                 stmt.executeUpdate();  
@@ -297,13 +305,13 @@ public class TicketForm extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         try{
-            if (connect() && !userID.getText().isEmpty() && !flightID.getText().isEmpty()){
+            if (connect() && !((String)userID.getSelectedItem()).isEmpty() && !((String)flightID.getSelectedItem()).isEmpty()){
                 PreparedStatement stmt = connection.prepareStatement("update ticket set "
                         + "userID=?, flightID=?, seat=?"
                         + "where ticketID=?");
                 stmt.setString(4, ticketID.getText());
-                stmt.setString(1, userID.getText());
-                stmt.setString(2, flightID.getText());
+                stmt.setString(1, (String)userID.getSelectedItem());
+                stmt.setString(2, (String)flightID.getSelectedItem());
                 stmt.setString(3, seat.getText());
                 stmt.executeUpdate();   
                 refresh();
@@ -341,8 +349,8 @@ public class TicketForm extends javax.swing.JFrame {
             //Because we are targeting a primary key, we simply set the values to the results taht are retrieved.  
             while (rs.next()) {
                 //Set the controls to the dtabase values
-               userID.setText(rs.getString("userID"));
-               flightID.setText(rs.getString("flightID"));
+               userID.setSelectedIndex((int)(getBoxIndex(userID, rs.getString("userID"))));
+               flightID.setSelectedIndex((int)(getBoxIndex(flightID, rs.getString("flightID"))));
                seat.setText(rs.getString("seat"));
                ticketID.setText(rs.getString("ticketID"));
             } 
@@ -351,6 +359,17 @@ public class TicketForm extends javax.swing.JFrame {
         } catch (Exception exception) { //catch any exceptions that may have occured
             exception.printStackTrace(); //print any errors
         } 
+    }
+    
+    private int getBoxIndex(JComboBox box, String id){
+        String item = "";
+        for(int i=0; i<box.getItemCount(); i++){
+            item = (String)box.getItemAt(i);
+            if(item.equalsIgnoreCase(id))
+                return i;
+        }
+        System.out.println("ITEM NOT FOUND!!!");
+        return -1;
     }
     
     private int getUniqueID(){
@@ -417,7 +436,7 @@ public class TicketForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deleteButton;
-    private javax.swing.JTextField flightID;
+    private javax.swing.JComboBox<String> flightID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -429,7 +448,7 @@ public class TicketForm extends javax.swing.JFrame {
     private javax.swing.JButton saveButton;
     private javax.swing.JTextField seat;
     private javax.swing.JLabel ticketID;
-    private javax.swing.JTextField userID;
+    private javax.swing.JComboBox<String> userID;
     private javax.swing.JList<String> userList;
     // End of variables declaration//GEN-END:variables
 

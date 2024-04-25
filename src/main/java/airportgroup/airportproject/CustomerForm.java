@@ -40,30 +40,15 @@ public class CustomerForm extends javax.swing.JFrame {
         userList = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        first_name = new javax.swing.JTextField();
-        birth_date = new javax.swing.JTextField();
-        last_name = new javax.swing.JTextField();
-        occupation = new javax.swing.JTextField();
+        username = new javax.swing.JTextField();
         phone = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        address = new javax.swing.JTextField();
-        city = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        state = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        zip = new javax.swing.JTextField();
         newButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
         userID = new javax.swing.JLabel();
-        menuButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Customer Form");
@@ -92,39 +77,15 @@ public class CustomerForm extends javax.swing.JFrame {
 
         jLabel2.setText("User:");
 
-        jLabel3.setText("First Name:");
-
-        jLabel4.setText("Last Name:");
-
-        jLabel5.setText("Birthdate:");
-
-        jLabel6.setText("Occupation:");
+        jLabel3.setText("Username:");
 
         jLabel7.setText("Phone:");
 
         jLabel8.setText("Email:");
 
-        first_name.addActionListener(new java.awt.event.ActionListener() {
+        username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                first_nameActionPerformed(evt);
-            }
-        });
-
-        birth_date.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                birth_dateActionPerformed(evt);
-            }
-        });
-
-        last_name.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                last_nameActionPerformed(evt);
-            }
-        });
-
-        occupation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                occupationActionPerformed(evt);
+                usernameActionPerformed(evt);
             }
         });
 
@@ -137,38 +98,6 @@ public class CustomerForm extends javax.swing.JFrame {
         email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 emailActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("State");
-
-        jLabel10.setText("Zip");
-
-        address.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addressActionPerformed(evt);
-            }
-        });
-
-        city.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cityActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setText("Address");
-
-        state.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stateActionPerformed(evt);
-            }
-        });
-
-        jLabel12.setText("City");
-
-        zip.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zipActionPerformed(evt);
             }
         });
 
@@ -195,13 +124,6 @@ public class CustomerForm extends javax.swing.JFrame {
 
         userID.setText("          ");
 
-        menuButton.setText("Menu");
-        menuButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuButtonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -219,17 +141,13 @@ public class CustomerForm extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
+                                .addGap(40, 40, 40)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(phone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                                    .addComponent(occupation, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(birth_date)
                                     .addComponent(email)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
@@ -238,31 +156,10 @@ public class CustomerForm extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(jLabel3)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(last_name, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(first_name))))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(state, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(city, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(zip)
-                            .addComponent(address, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(41, 41, 41))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(menuButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42))))
+                        .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(279, 279, 279))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(newButton)
@@ -284,57 +181,22 @@ public class CustomerForm extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(jScrollPane1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(userID)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(menuButton)))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(userID))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(first_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(last_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(birth_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(occupation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel7))
-                                .addGap(22, 22, 22)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel8)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(address, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel12)
-                                    .addComponent(city, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(state, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel10)
-                                    .addComponent(zip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(138, 138, 138)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(phone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newButton)
@@ -352,7 +214,7 @@ public class CustomerForm extends javax.swing.JFrame {
 
     public boolean connect(){
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root","dinosaur");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/g7airlines", "root","dinosaur");
             return true;
         } catch(Exception exception){
             exception.printStackTrace();
@@ -363,15 +225,14 @@ public class CustomerForm extends javax.swing.JFrame {
     public void refresh(){
         try{
             if(connect()){
-                String query = "select * from reguser";
+                String query = "select * from customer";
                 Statement sta = connection.createStatement();
 
                 ResultSet rs = sta.executeQuery(query);
                 DefaultListModel listModel;
                 listModel = new DefaultListModel();
                 while(rs.next()){
-                    listModel.addElement(rs.getString("ID") + " - " + rs.getString("first_name") + " " + 
-                            rs.getString("last_name"));
+                    listModel.addElement(rs.getString("userID") + " - " + rs.getString("user_name"));
                 }
                 userList.clearSelection();
                 userList.setModel(listModel);
@@ -383,21 +244,9 @@ public class CustomerForm extends javax.swing.JFrame {
         }
     }
     
-    private void first_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_first_nameActionPerformed
+    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_first_nameActionPerformed
-
-    private void birth_dateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_birth_dateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_birth_dateActionPerformed
-
-    private void last_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_last_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_last_nameActionPerformed
-
-    private void occupationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_occupationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_occupationActionPerformed
+    }//GEN-LAST:event_usernameActionPerformed
 
     private void phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneActionPerformed
         // TODO add your handling code here:
@@ -407,37 +256,14 @@ public class CustomerForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_emailActionPerformed
 
-    private void addressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_addressActionPerformed
-
-    private void cityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cityActionPerformed
-
-    private void stateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stateActionPerformed
-
-    private void zipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_zipActionPerformed
-
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
         try{
-            if (connect() && !first_name.getText().isEmpty() && !last_name.getText().isEmpty()){
-                PreparedStatement stmt = connection.prepareStatement("insert into reguser values(?,?,?,?,?,?,?,?,?,?,?)");
-                stmt.setString(2, first_name.getText());
-                stmt.setString(3, last_name.getText());
-                stmt.setString(5, address.getText());
-                stmt.setString(6, city.getText());
-                stmt.setString(7, state.getText());
-                stmt.setString(8, zip.getText());
-                stmt.setString(11, phone.getText());
-                stmt.setString(9, occupation.getText());
-                stmt.setString(10, birth_date.getText());
-                stmt.setString(4, email.getText());
+            if (connect() && !username.getText().isEmpty()){
+                PreparedStatement stmt = connection.prepareStatement("insert into customer values(?,?,?,?)");
                 stmt.setString(1, Integer.toString(getUniqueID()));
+                stmt.setString(2, username.getText());
+                stmt.setString(3, email.getText());
+                stmt.setString(4, phone.getText());
                 stmt.executeUpdate();  
                 refresh();
             }
@@ -470,21 +296,14 @@ public class CustomerForm extends javax.swing.JFrame {
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         try{
-            if (connect() && !first_name.getText().isEmpty() && !last_name.getText().isEmpty()){
-                PreparedStatement stmt = connection.prepareStatement("update reguser set "
-                        + "first_name=?, last_name=?, email=?, address=?, city=?, state=?, zip=?, occupation=?, birth_date=?, phone=? "
-                        + "where ID=?");
-                stmt.setString(11, userID.getText());
-                stmt.setString(1, first_name.getText());
-                stmt.setString(2, last_name.getText());
-                stmt.setString(4, address.getText());
-                stmt.setString(5, city.getText());
-                stmt.setString(6, state.getText());
-                stmt.setString(7, zip.getText());
-                stmt.setString(10, phone.getText());
-                stmt.setString(8, occupation.getText());
-                stmt.setString(9, birth_date.getText());
-                stmt.setString(3, email.getText());
+            if (connect() && !username.getText().isEmpty()){
+                PreparedStatement stmt = connection.prepareStatement("update customer set "
+                        + "user_name=?, user_email=?, user_phone=? "
+                        + "where userID=?");
+                stmt.setString(4, userID.getText());
+                stmt.setString(1, username.getText());
+                stmt.setString(2, email.getText());
+                stmt.setString(3, phone.getText());
                 stmt.executeUpdate();   
                 refresh();
             }
@@ -497,7 +316,7 @@ public class CustomerForm extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try{
             if (connect()){
-                PreparedStatement stmt = connection.prepareStatement("delete from reguser where ID=?");
+                PreparedStatement stmt = connection.prepareStatement("delete from customer where userID=?");
                 stmt.setString(1, userID.getText());
                 stmt.executeUpdate();
                 refresh();
@@ -508,16 +327,12 @@ public class CustomerForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_deleteButtonActionPerformed
 
-    private void menuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuButtonActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_menuButtonActionPerformed
-
     public void updateform(String id){
         try {
             //Establish mysql connection
             connect();
             //Initialize the query
-            String query = "select * from reguser where ID="+id;
+            String query = "select * from customer where userID="+id;
             //create the statement
             Statement sta = connection.createStatement();
             //Set the results
@@ -525,17 +340,10 @@ public class CustomerForm extends javax.swing.JFrame {
             //Because we are targeting a primary key, we simply set the values to the results taht are retrieved.  
             while (rs.next()) {
                 //Set the controls to the dtabase values
-               first_name.setText(rs.getString("first_name"));
-               last_name.setText(rs.getString("last_name"));
-               address.setText(rs.getString("address"));
-               city.setText(rs.getString("city"));
-               state.setText(rs.getString("state"));
-               zip.setText(rs.getString("zip"));
-               phone.setText(rs.getString("phone"));
-               occupation.setText(rs.getString("occupation"));
-               birth_date.setText(rs.getString("birth_date"));
-               email.setText(rs.getString("email")); 
-               userID.setText(rs.getString("ID"));
+               username.setText(rs.getString("user_name"));
+               phone.setText(rs.getString("user_phone"));
+               email.setText(rs.getString("user_email")); 
+               userID.setText(rs.getString("userID"));
             } 
             //close the connection
             connection.close();
@@ -553,7 +361,7 @@ public class CustomerForm extends javax.swing.JFrame {
         try{
             if(connect()){
                 while (!found){
-                    String query = "select ID from reguser where ID="+id;
+                    String query = "select userID from customer where userID="+id;
                 //create the statement
                 Statement sta = connection.createStatement();
                 //Set the results
@@ -607,36 +415,21 @@ public class CustomerForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField address;
-    private javax.swing.JTextField birth_date;
-    private javax.swing.JTextField city;
     private javax.swing.JButton deleteButton;
     private javax.swing.JTextField email;
-    private javax.swing.JTextField first_name;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField last_name;
-    private javax.swing.JButton menuButton;
     private javax.swing.JButton newButton;
-    private javax.swing.JTextField occupation;
     private javax.swing.JTextField phone;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton saveButton;
-    private javax.swing.JTextField state;
     private javax.swing.JLabel userID;
     private javax.swing.JList<String> userList;
-    private javax.swing.JTextField zip;
+    private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 
     //Custom Variable declaration

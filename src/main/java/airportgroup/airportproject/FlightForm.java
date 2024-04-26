@@ -235,7 +235,7 @@ public class FlightForm extends javax.swing.JFrame {
 
     public boolean connect(){
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/registration", "root","dinosaur");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/G7Airlines", "root","dinosaur");
             return true;
         } catch(Exception exception){
             exception.printStackTrace();
@@ -246,18 +246,24 @@ public class FlightForm extends javax.swing.JFrame {
     public void refresh(){
         try{
             if(connect()){
-                String query = "select * from reguser";
+                String query = "select * from flight";
+                String Originquery = "select originID from flight";
+                String destinationquery = "select destinationID from flight";
+                String datequery = "select flight_date from flight";
+                String gatequery = "select flight_gate from flight";
+                String flightquery = "select flightID from flight";
                 Statement sta = connection.createStatement();
-
                 ResultSet rs = sta.executeQuery(query);
+                
                 DefaultListModel listModel;
                 listModel = new DefaultListModel();
                 while(rs.next()){
-                    listModel.addElement(rs.getString("ID") + " - " + rs.getString("first_name") + " " + 
-                            rs.getString("last_name"));
+                    listModel.addElement(rs.getString("flightID") );
                 }
                 userList.clearSelection();
                 userList.setModel(listModel);
+                
+                
                 connection.close();
             }
         }
@@ -285,7 +291,7 @@ public class FlightForm extends javax.swing.JFrame {
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
         try{
             if (connect() && !origin.getText().isEmpty() && !destination.getText().isEmpty()){
-                PreparedStatement stmt = connection.prepareStatement("insert into reguser values(?,?,?,?,?,?,?,?,?,?,?)");
+                PreparedStatement stmt = connection.prepareStatement("insert into flight values(?,?,?,?,?,?,?,?,?,?,?)");
                 stmt.setString(2, origin.getText());
                 stmt.setString(3, destination.getText());
                 stmt.setString(9, gate.getText());
@@ -324,7 +330,7 @@ public class FlightForm extends javax.swing.JFrame {
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         try{
             if (connect() && !origin.getText().isEmpty() && !destination.getText().isEmpty()){
-                PreparedStatement stmt = connection.prepareStatement("update reguser set "
+                PreparedStatement stmt = connection.prepareStatement("update flight set "
                         + "first_name=?, last_name=?, email=?, address=?, city=?, state=?, zip=?, occupation=?, birth_date=?, phone=? "
                         + "where ID=?");
                 stmt.setString(11, flightID.getText());
@@ -344,7 +350,7 @@ public class FlightForm extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         try{
             if (connect()){
-                PreparedStatement stmt = connection.prepareStatement("delete from reguser where ID=?");
+                PreparedStatement stmt = connection.prepareStatement("delete from flight where flightID=?");
                 stmt.setString(1, flightID.getText());
                 stmt.executeUpdate();
                 refresh();
@@ -360,7 +366,7 @@ public class FlightForm extends javax.swing.JFrame {
             //Establish mysql connection
             connect();
             //Initialize the query
-            String query = "select * from reguser where ID="+id;
+            String query = "select * from flight where flightID="+id;
             //create the statement
             Statement sta = connection.createStatement();
             //Set the results
@@ -368,11 +374,11 @@ public class FlightForm extends javax.swing.JFrame {
             //Because we are targeting a primary key, we simply set the values to the results taht are retrieved.  
             while (rs.next()) {
                 //Set the controls to the dtabase values
-               origin.setText(rs.getString("first_name"));
-               destination.setText(rs.getString("last_name"));
-               gate.setText(rs.getString("occupation"));
-               date.setText(rs.getString("birth_date"));
-               flightID.setText(rs.getString("ID"));
+               origin.setText(rs.getString("originID"));
+               destination.setText(rs.getString("destinationID"));
+               gate.setText(rs.getString("flight_gate"));
+               date.setText(rs.getString("flight_date"));
+               flightID.setText(rs.getString("flightID"));
             } 
             //close the connection
             connection.close();
@@ -390,7 +396,7 @@ public class FlightForm extends javax.swing.JFrame {
         try{
             if(connect()){
                 while (!found){
-                    String query = "select ID from reguser where ID="+id;
+                    String query = "select flightID from flight where flightID="+id;
                 //create the statement
                 Statement sta = connection.createStatement();
                 //Set the results
